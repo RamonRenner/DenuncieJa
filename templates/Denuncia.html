@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<meta charset="UTF_8">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<title> Denuncia </title>
+        <link rel="shortcut icon" href="imagens/imagem.png">
+    	<link href="{{ url_for('static', filename='CSS/Denuncia.css') }}" rel="stylesheet" type="text/css">
+		
+	</head>
+
+	<body>
+		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+			<a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="color: white;"><h5>Report It</h5></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item active">
+						<a class="nav-link" href="/index"><h5> Voltar </h5><span class="sr-only">(current)</span></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+
+		<!--<script src = "{{ url_for('static', filename='JS/Formulario.js') }}"></script>-->
+				<form method="POST">
+					<h1 id="titulo">Responda Os Dados A Baixo</h1>
+					<div id = "centro">
+
+							{{ form.hidden_tag() }}
+							{{ form.nome.label }}<br>
+							{{ form.nome }}<br>
+							{{ form.sobrenome.label }}<br>
+							{{ form.sobrenome }}<br>
+							{{ form.cpf.label }}<br>
+							{{ form.cpf }}<br>
+							{{ form.bairro.label }}<br>
+							{{ form.bairro }}<br>
+							{{ form.rua.label }}<br>
+							{{ form.rua }}<br>
+							{{ form.cidade.label }}<br>
+							{{ form.cidade }}<br>
+							{{ form.estado.label }}<br>
+							{{ form.estado }}<br>
+							{{ form.pais.label }}<br>
+							{{ form.pais }}<br>
+							{{ form.idade.label }}<br>
+							{{ form.idade }}<br>
+							{{ form.telefone.label }}<br>
+							{{ form.telefone }}<br>
+							{{ form.email.label }}<br>
+							{{ form.email }}<br>
+							{{ form.pergunta1.label }}<br>
+							{{ form.pergunta1 }}<br>
+							{{ form.pergunta2.label }}<br>
+							{{ form.pergunta2 }}<br>
+							
+							{{ form.botao }}<br>
+
+					<!--<table>
+						<tr> <td><h3 class="corl"> Nome </h3></td> <td><h3> <input class="borda" type="text" id="nome"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Sobrenome </h3></td> <td><h3> <input class="borda" type="text" id="sobrenome"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> CPF </h3></td> <td><h3> <input class="borda" type="number" id="CPF"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Bairro </h3></td> <td><h3> <input class="borda" type="text" id="bairro"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Rua </h3></td> <td><h3> <input class="borda" type="text" id="rua"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Cidade </h3></td> <td><h3> <input class="borda" type="text" id="cidade"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Estado </h3></td> <td><h3> <input class="borda" type="text" id="estado"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> País </h3></td> <td><h3> <input class="borda" type="text" id="pais"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Idade </h3></td> <td><h3> <input class="borda" type="number" id="idade"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Telefone </h3></td> <td><h3> <input class="borda" type="number" id="telefone"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Email </h3></td> <td><h3> <input class="borda" type="email" id="email"/> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> O que você sofreu?</h3></td> <td><h3> <textarea rows="2" cols="23" class="borda" type="text" id="a"> </textarea> </h3></td> </tr>
+						<tr> <td><h3 class="corl"> Quem fez isso com você? </h3></td> <td><h3> <textarea rows="2" cols="23" class="borda" type="text" id="b"> </textarea></h3> </td> </tr>
+						
+					</table>
+					<p id="butao"> <input class="corl" type="submit" onclick = "validacao()"/> </p>-->
+				</form>
+			</div>
+	</body>	
+</html>
