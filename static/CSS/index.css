@@ -1,0 +1,36 @@
+            #titulo2{
+              	color: rgb(243, 242, 247);
+                text-align: center;
+				 }
+            .imagem{
+                margin-left: auto;
+                margin-right: auto;
+                width: 54em  
+                 }
+          
+            #conteudo{
+                background-color: gray;    
+                }
+            #conteudo2{                       
+                margin-left: auto;
+                margin-right: auto;
+                width: 54em 
+                }
+            .conteudos{
+                font-style: italic;
+				}
+            #vertical{
+                font-style: italic;
+                float: left;
+                font-size: 310%
+                }
+            #vertical2{
+                font-style: italic;
+                float: right;
+                font-size: 310%
+                }
+            #fim{
+                background-color: black;
+                width: 100%;
+                }
+         
