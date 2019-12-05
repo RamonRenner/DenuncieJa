@@ -99,7 +99,7 @@ def cadastro():
 		u1=Usuario(username=form.username.data, password=form.password.data, email=form.email.data)
 		db.session.add(u1)
 		db.session.commit()
-		return redirect(url_for('denuncia'))
+		return redirect(url_for('denuncia'))	
 	return render_template('Cadastro.html', form = form)
 
 @app.route('/logout')
