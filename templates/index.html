@@ -4,108 +4,105 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <title> Denuncie Já </title>
-        <link rel="shortcut icon" href="imagens/imagem.png">
+        <link rel="shortcut icon" href="{{ url_for('static', filename='imagens/imagem.png') }}">
         <link  rel="stylesheet" href="{{ url_for('static', filename='CSS/index.css') }}" type="text/css">
-	</head>
-
-    <body id="conteudo">
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; width: 100%;">
             <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="color: white;" ><h5>Report It</h5></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-          
+            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              	<ul class="navbar-nav mr-auto">
-                	<li class="nav-item active">
-                  		<a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="color: white;"><h5></h5> <span class="sr-only">(current)</span></a>
-                	</li>
-              	</ul>
-              	<form class="form-inline my-2 my-lg-0">
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="/cadastro" type="">Cadastrar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="/login" type="" >Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a class="btn btn-outline-success my-2 my-sm-0" href="/denuncia" type="" >Denuncia</a>
-              	</form>
+                <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                        <a class="nav-item nav-link disabled" href="#" tabindex="-1" aria-disabled="true" style="color: white;"><h5></h5> <span class="sr-only">(current)</span></a>
+                </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                <a class="btn btn-outline-success my-2 my-sm-0" href="{{url_for('cadastro')}}" type="">Cadastrar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a class="btn btn-outline-success my-2 my-sm-0" href="{{url_for('login')}}" type="" >Login</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                </form>
             </div>
         </nav><br><br><br>
-        	
-            
-            <h1 id="titulo2">Principais Denuncias</h1><br>
-            <h2  style : align= "center">Racismo</h2></br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div id="conteudo2">
-                <img class="imagem" src="{{ url_for('static', filename='imagens/racismo.jpg') }}"/>
-                <p class="conteudos";>  <b> Racismo é a discriminação social baseada no conceito de que existem diferentes raças humanas e que uma é superior às outras. Esta noção tem 
-                base em diferentes motivações, em especial as características físicas e outros traços do comportamento humano.
-                Consiste em uma atitude depreciativa e discriminatória não baseada em critérios científicos em relação a algum grupo social ou étnico.
-                O racismo no Brasil é crime previsto na Lei n. 7.716/1989, e inafiançável e não prescreve, ou seja, quem cometeu o ato racista pode ser condenado mesmo anos depois do crime.
-                O preconceito racial está relacionado com conceitos como homofobia, xenofobia, bullying racista, entre outros muito debatidos na atualidade.
-                </p>
-                <h2 align="center";>Violência a Mulher</h2><br><br>
-                <img class="imagem" src="{{ url_for('static', filename='imagens/mulher.jpg') }}"/>
-                <p class="conteudos">Material escrito, imagens ou qualquer outro tipo de representação de ideias
-                ou teorias que promovam e/ou incitem o ódio (misoginia), a discriminação ou violência 
-                contra qualquer pessoa por razões de gênero – incluindo seu sexo biológico, orientação 
-                sexual e sua identidade de gênero. No Brasil, a Constituição Federal e a legislação penal 
-                punem qualquer discriminação ou prática atentatória aos Direitos Humanos e lesiva ao interesse 
-                da sociedade. Também, a lei 11.340/2006 (Lei Maria da Penha) protege as mulheres em situação de 
-                violência doméstica e familiar, tais como: violência física, psicológica, sexual, patrimonial e moral.
-                Estas formas de violência podem ser praticadas, compartilhadas, incitadas ou difundidas pela internet.</p>
-                <h2 align="center"; >Pornografia Infantil</h2><br><br>              
-                <img class="imagem" src="{{ url_for('static', filename='imagens/pornografiai.jpg') }}"/>
-                <p class="conteudos">Pornografia infantil significa qualquer representação, por qualquer meio, de uma criança envolvida em 
-                atividades sexuais explícitas reais ou simuladas, ou qualquer representação dos órgãos sexuais de uma 
-                criança para fins primordialmente sexuais - Art. 2 alínea c do Protocolo Facultativo à Convenção sobre 
-                os Direitos da Criança referente à venda de crianças, à prostituição infantil e à pornografia infantil, 
-                adotado em Nova York em 25 de maio de 2000 e Ratificado pelo Brasil através do DECRETO N o 5.007, DE 8 DE
-           		MARÇO DE 2004.A legislação brasileira em vigor tipifica como crime a conduta de Apresentar, produzir, vender,
-                fornecer, divulgar ou publicar, por qualquer meio de comunicação, inclusive rede mundial de computadores ou 
-                internet, fotografias ou imagens com pornografia ou cenas de sexo explícito envolvendo criança ou adolescente 
-                - Art. 241 do Estatuto da Criança e do Adolescente. </p>
-                <h2 align="center"; >Xenofobia</h2><br><br>
-                <img class="imagem" src="{{ url_for('static', filename='imagens/xenofobia.jpg') }}"/>
-                <p class="conteudos" >Material escrito, imagens ou qualquer outro tipo de representação de idéias ou teorias que promovam e/ou incitem o ódio, a discriminação ou violência contra qualquer indivíduo ou grupo de indivíduos, baseado na raça, cor, religião, descendência ou origem étnica ou nacional.</p>
-                <h2 align="center"> Homofobia</h2><br><br>
-                <img class="imagem" src="{{ url_for('static', filename='imagens/homofobia.jpg') }}"/>
-                <p class="conteudos">As leis penais em vigor no Brasil ainda não prevêem o crime de homofobia, em que pese a Constituição Federal de 1988 determinar que 
-                Constituem objetivos fundamentais da República Federativa do Brasil: promover o bem de todos, sem preconceitos de origem,
-                raça, sexo, cor, idade e quaisquer outras formas de discriminação - Art. 3º, XLI e ainda que a lei punirá qualquer 
-                discriminação atentatória dos direitos e liberdades fundamentais - Art. 5º, XLISendo assim, de acordo com o mandamento constitucional
-                e entendendo ser esta prática atentatória aos Direitos Humanos e lesiva ao interesse da sociedade, a SaferNet Brasil rastreará as denúncias
-                recebidas e as encaminhará para as instituições pertinentes. </p>
-                <h2 align="center"> Trafico de Pessoas</h2><br><br>
-                <img class="imagem" src="{{ url_for('static', filename='imagens/traficopessoas.png') }}"/>
-                <p class="conteudos">Trafico de pessoas é o recrutamento, transporte, transferência, abrigo ou recebimento de pessoas, por meio de ameaça ou uso da força ou outras formas de coerção, de rapto, de fraude, de engano, do abuso de poder ou de uma posição de vulnerabilidade ou de dar ou receber pagamentos ou benefícios para obter o consentimento para uma pessoa ter controle sobre outra pessoa, para o propósito de exploração.</p>
-        	</div>
-        	
-        	<div id="fim"><br>     	
-        	 	<table width="100%">
-					<tr><td><table></table></td><td><table></table></td>
-        				<td><table>
-        					<p width="10%" style="color: gray"><b>Redes Socias<b></p>
-        					<tr><td><a href="" target="_blank"><img src="{{ url_for('static', filename='imagens/facebook.png') }}"></a></td><td><p style="color: white"><b>Ramon Renner</p></td></tr>
-        					<tr><td><a href="" target="_blank"><img src="{{ url_for('static', filename='imagens/facebook.png') }}"></a></td><td><p style="color: white"><b>Silvio Santos</p></td></tr>
-        					<tr><td><a href="" target="_blank"><img src="{{ url_for('static', filename='imagens/instagram.png') }}"></a></td><td><p style="color: white"><b>Ramon Renner</p></td></tr>
-        					<tr><td><a href="" target="_blank"><img src="{{ url_for('static', filename='imagens/instagram.png') }}"></a></td><td><p style="color: white"><b>Silvio Santos</p></td></tr> 
-        				</table></td>
-        				
-        				<td><table>
-        					<tr><td></td><td><p style="color: gray"><b>Contato<b></p></td></tr>
-        					<tr><td><p style="color: gray">Email:</p></td><td><p style="color: white"><b>denuncieja@gmail.com</p></td></tr>
-        					<tr><td><p style="color: gray">Tel.:</p></td><td><p style="color: white"><b>(99) 99999-9999</p></td></tr>
-        					<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>	 
-        				</table></td>
+	</head>
 
-        				<td><table>
-        					<p style="color: gray"><b>Desenvolvedores<b></p>
-        					<tr><td><p style="color: white"><b>Ramon Renner Silva Amorim</p></td></tr>
-        					<tr><td><p style="color: white"><b>Silvio Santos da Silva Trindade</p></td></tr>
-        					<tr><td><p style="color: gray"><b>Docente<b></p></td></tr>
-        					<tr><td><p style="color: white"><b>Cleyton Fábio</p></td></tr>
-        					<tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
-        				</table></td>
-        			</td></tr>
-        		</table><br>
-        	</div>
+    <body id="conteudo">
+        <h1 id="titulo2"><b>Principais Denuncias</b></h1><br>
+        <h2  style : align= "center"><b>Racismo</b></h2></br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div id="conteudo2">
+            <img class="imagem" src="{{ url_for('static', filename='imagens/racismo.jpg') }}"/>
+            <p align="justify" class="conteudos";>  <b> Racismo é a discriminação social baseada no conceito de que existem diferentes raças humanas e que uma é superior às outras. Esta noção tem 
+            base em diferentes motivações, em especial as características físicas e outros traços do comportamento humano.
+            Consiste em uma atitude depreciativa e discriminatória não baseada em critérios científicos em relação a algum grupo social ou étnico.
+            O racismo no Brasil é crime previsto na Lei n. 7.716/1989, e inafiançável e não prescreve, ou seja, quem cometeu o ato racista pode ser condenado mesmo anos depois do crime.
+            O preconceito racial está relacionado com conceitos como homofobia, xenofobia, bullying racista, entre outros muito debatidos na atualidade.
+            </p>
+            <h2 align="center";><b>Violência a Mulher</b></h2><br><br>
+            <img class="imagem" src="{{ url_for('static', filename='imagens/mulher.jpg') }}"/>
+            <p align="justify" class="conteudos">Material escrito, imagens ou qualquer outro tipo de representação de ideias
+            ou teorias que promovam e/ou incitem o ódio (misoginia), a discriminação ou violência 
+            contra qualquer pessoa por razões de gênero – incluindo seu sexo biológico, orientação 
+            sexual e sua identidade de gênero. No Brasil, a Constituição Federal e a legislação penal 
+            punem qualquer discriminação ou prática atentatória aos Direitos Humanos e lesiva ao interesse 
+            da sociedade. Também, a lei 11.340/2006 (Lei Maria da Penha) protege as mulheres em situação de 
+            violência doméstica e familiar, tais como: violência física, psicológica, sexual, patrimonial e moral.
+            Estas formas de violência podem ser praticadas, compartilhadas, incitadas ou difundidas pela internet.</p>
+            <h2 align="center"; ><b>Pornografia Infantil</b></h2><br><br>              
+            <img class="imagem" src="{{ url_for('static', filename='imagens/pornografiai.jpg') }}"/>
+            <p align="justify" class="conteudos">Pornografia infantil significa qualquer representação, por qualquer meio, de uma criança envolvida em 
+            atividades sexuais explícitas reais ou simuladas, ou qualquer representação dos órgãos sexuais de uma 
+            criança para fins primordialmente sexuais - Art. 2 alínea c do Protocolo Facultativo à Convenção sobre 
+            os Direitos da Criança referente à venda de crianças, à prostituição infantil e à pornografia infantil, 
+            adotado em Nova York em 25 de maio de 2000 e Ratificado pelo Brasil através do DECRETO N o 5.007, DE 8 DE
+            MARÇO DE 2004.A legislação brasileira em vigor tipifica como crime a conduta de Apresentar, produzir, vender,
+            fornecer, divulgar ou publicar, por qualquer meio de comunicação, inclusive rede mundial de computadores ou 
+            internet, fotografias ou imagens com pornografia ou cenas de sexo explícito envolvendo criança ou adolescente 
+            - Art. 241 do Estatuto da Criança e do Adolescente. </p>
+            <h2 align="center"; ><b>Xenofobia</b></h2><br><br>
+            <img class="imagem" src="{{ url_for('static', filename='imagens/xenofobia.jpg') }}"/>
+            <p align="justify" class="conteudos" >Material escrito, imagens ou qualquer outro tipo de representação de idéias ou teorias que promovam e/ou incitem o ódio, a discriminação ou violência contra qualquer indivíduo ou grupo de indivíduos, baseado na raça, cor, religião, descendência ou origem étnica ou nacional.</p>
+            <h2 align="center"><b>Homofobia</b></h2><br><br>
+            <img class="imagem" src="{{ url_for('static', filename='imagens/homofobia.jpg') }}"/>
+            <p align="justify" class="conteudos">As leis penais em vigor no Brasil ainda não prevêem o crime de homofobia, em que pese a Constituição Federal de 1988 determinar que 
+            Constituem objetivos fundamentais da República Federativa do Brasil: promover o bem de todos, sem preconceitos de origem,
+            raça, sexo, cor, idade e quaisquer outras formas de discriminação - Art. 3º, XLI e ainda que a lei punirá qualquer 
+            discriminação atentatória dos direitos e liberdades fundamentais - Art. 5º, XLISendo assim, de acordo com o mandamento constitucional
+            e entendendo ser esta prática atentatória aos Direitos Humanos e lesiva ao interesse da sociedade, a SaferNet Brasil rastreará as denúncias
+            recebidas e as encaminhará para as instituições pertinentes. </p>
+            <h2 align="center"><b>Trafico de Pessoas</b></h2><br><br>
+            <img class="imagem" src="{{ url_for('static', filename='imagens/traficopessoas.png') }}"/>
+            <p align="justify" class="conteudos">Trafico de pessoas é o recrutamento, transporte, transferência, abrigo ou recebimento de pessoas, por meio de ameaça ou uso da força ou outras formas de coerção, de rapto, de fraude, de engano, do abuso de poder ou de uma posição de vulnerabilidade ou de dar ou receber pagamentos ou benefícios para obter o consentimento para uma pessoa ter controle sobre outra pessoa, para o propósito de exploração.</p>
+        </div>
+        
+        <div id="fim"><br>     	
+            <table width="100%">
+                <tr><td><table></table></td><td><table></table></td>
+                    <td><table>
+                        <p width="10%" style="color: gray"><b>Redes Socias<b></p>
+                        <tr><td><a href="" target="_blank"><img src="{{ url_for('static', filename='imagens/facebook.png') }}"></a></td><td><p style="color: white"><b>Ramon Renner</p></td></tr>
+                        <tr><td><a href="" target="_blank"><img src="{{ url_for('static', filename='imagens/facebook.png') }}"></a></td><td><p style="color: white"><b>Silvio Santos</p></td></tr>
+                        <tr><td><a href="" target="_blank"><img src="{{ url_for('static', filename='imagens/instagram.png') }}"></a></td><td><p style="color: white"><b>Ramon Renner</p></td></tr>
+                        <tr><td><a href="" target="_blank"><img src="{{ url_for('static', filename='imagens/instagram.png') }}"></a></td><td><p style="color: white"><b>Silvio Santos</p></td></tr> 
+                    </table></td>
+                    
+                    <td><table>
+                        <tr><td></td><td><p style="color: gray"><b>Contato<b></p></td></tr>
+                        <tr><td><p style="color: gray">Email:</p></td><td><p style="color: white"><b>denuncieja@gmail.com</p></td></tr>
+                        <tr><td><p style="color: gray">Tel.:</p></td><td><p style="color: white"><b>(99) 99999-9999</p></td></tr>
+                        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>	 
+                    </table></td>
+
+                    <td><table>
+                        <p style="color: gray"><b>Desenvolvedores<b></p>
+                        <tr><td><p style="color: white"><b>Ramon Renner Silva Amorim</p></td></tr>
+                        <tr><td><p style="color: white"><b>Silvio Santos da Silva Trindade</p></td></tr>
+                        <tr><td><p style="color: gray"><b>Docente<b></p></td></tr>
+                        <tr><td><p style="color: white"><b>Cleyton Fábio</p></td></tr>
+                        <tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr><tr><td></td></tr>
+                    </table></td>
+                </td></tr>
+            </table><br>
+        </div>
     </body>
 </html>
