@@ -1,66 +1,54 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from app.cadastro import CadastroForm
 from app.login import LoginForm
 from app.denuncia import DenunciaForm
-from app.perfil import PerfilForm
+from flask_login import LoginManager, login_user, logout_user
 
-#from bancodados import Usuario
+
+
 
 app = Flask(__name__) 
 app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///meusite.db'
 app.config['SECRET_KEY'] = 'SDFRGHTNJYMUK,IL.'
 db = SQLAlchemy(app)
+login_manager = LoginManager(app)
 
 
-
-#temporario
+#Banco de dados
 
 class Usuario(db.Model):
 	__tablename__="usuario"
 	id = db.Column(db.Integer, primary_key=True)
-	username = db.Column(db.String(80), unique=True, nullable=False)
-	password = db.Column(db.String(8), unique=True, nullable=False) 
+	username = db.Column(db.String(80), unique=False, nullable=False)
 	email = db.Column(db.String(200), unique=True, nullable=False)
+	password = db.Column(db.String(8), unique=False, nullable=False) 
+	
 
 
 	def __init__(self, username, password, email):
 		self.username = username
 		self.password = password
 		self.email = email
+
+	@property
+	def is_authenticated(self):
+		return True
+
+	@property
+	def is_active(self):
+		return True
+
+	def get_id(self):
+		return str(self.id)
+    
+	@login_manager.user_loader
+	def load_user(user_id):
+		return Usuario.query.filter_by(id=user_id).first()
+
 		
 	def __repr__(self):
 		return "<Usuario %r>" % self.username
-
-class Perfil(db.Model):
-	__tablename___="perfil"
-	id = db.Column(db.Integer, primary_key=True)
-	nome = db.Column(db.String(80), unique=True, nullable=False)
-	sobrenome = db.Column(db.String(80), unique=True, nullable=False)
-	cpf = db.Column(db.String(80), unique=True, nullable=False)
-	email = db.Column(db.String(80), unique=True, nullable=False)
-
-	def __init__(self, nome, sobrenome, cpf, email):
-		self.nome = nome
-		self.sobrenome = sobrenome
-		self.cpf = cpf
-		self.email = email
-		
-	def __repr__(self):
-		return "<Perfil %r>" % self.nome
-
-class Login(db.Model):
-	__tablename___="logins"
-	id = db.Column(db.Integer, primary_key=True)
-	username = db.Column(db.String(80), unique=True, nullable=False)
-	password = db.Column(db.String(80), unique=True, nullable=False)
-
-	def __init__(self, username, password):
-		self.username = username
-		self.password = password
-		
-	def __repr__(self):
-		return "<Login %r>" % self.username
 
 class Denuncia(db.Model):
 	__tablename__="denuncias"
@@ -97,17 +85,7 @@ class Denuncia(db.Model):
 	def __repr__(self):
 		return "<Denuncia %r>" % self.nome
 
-   
-
-
-
-
-
-
-
-
-
-
+#Banco de dados acaba
 
 @app.route('/')
 @app.route('/index')
@@ -121,27 +99,27 @@ def cadastro():
 		u1=Usuario(username=form.username.data, password=form.password.data, email=form.email.data)
 		db.session.add(u1)
 		db.session.commit()
-		
+		return redirect(url_for('denuncia'))
 	return render_template('Cadastro.html', form = form)
 
-@app.route('/perfil', methods=['GET','POST'])
-def perfil():
-	form = PerfilForm()
-	if form.validate_on_submit():
-		u4=Perfil(nome=form.nome.data, sobrenome=form.sobrenome.data, cpf=form.cpf.data, email=form.email.data)
-		db.session.add(u4)
-		db.session.commit()
-	return render_template('Perfil.html', form = form)
+@app.route('/logout')
+def logout():
+	session.clear()
+	logout_user()
+	return redirect(url_for('login'))
 
-@app.route('/login', methods=['GET','POST'])
+@app.route('/login',methods=['GET', 'POST'])
 def login():
 	form = LoginForm()
 	if form.validate_on_submit():
-		u2=Login(username=form.username.data, password=form.password.data)
-		db.session.add(u2)
-		db.session.commit()
-		
-	return render_template('Login.html', form = form)
+		user = Usuario.query.filter_by(username=form.username.data).first()
+		if user and user.password == form.password.data:
+			login_user(user)
+			return redirect(url_for('denuncia'))
+		else:
+			return redirect(url_for('login'))	
+	return render_template('Login.html', form=form)
+
 
 @app.route('/denuncia', methods=['GET','POST'])
 def denuncia():
@@ -164,7 +142,7 @@ def denuncia():
 		)
 		db.session.add(u3)
 		db.session.commit()
-
+		
 	return render_template('Denuncia.html', form = form)
 	
 if __name__ == '__main__': 
