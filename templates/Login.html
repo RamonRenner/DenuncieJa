@@ -4,8 +4,8 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 		<title> Login </title>
-        <link rel="shortcut icon" href="imagens/imagem.png">
-    	<link href="{{ url_for('static', filename='CSS/Login.css') }}" rel="stylesheet" type="text/css">
+		<link rel="shortcut icon" href="{{ url_for('static', filename='imagens/imagem.png') }}">
+		<link href="{{ url_for('static', filename='CSS/Login.css') }}" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -22,19 +22,18 @@
 			</div>
 		</nav>
 
-		<!--<script language="javascript" src="{{ url_for('static', filename='JS/Denuncia.js') }}"></script>-->
 
 		<form method="POST">
-			<h2 id="titulo">Informe Sua Conta</h2></br>
+			<h2 id="titulo"><b>INFORME SUA CONTA</b></h2></br>
 			<div id = "meio">
 				
 					{{ form.hidden_tag() }}
-					{{ form.username.label }}<br>
-					{{ form.username }}<br>
-					{{ form.password.label }}<br>
-					{{ form.password }}<br>
+					<b>{{ form.username.label }}</b><br>
+					{{ form.username(class_="conteudo") }}<br>
+					<b>{{ form.password.label }}</b><br>
+					{{ form.password(class_="conteudo") }}<br><br>
 
-					{{ form.botao }}
+					{{ form.botao(class_="butao") }}
 
 			</div></br>
 		</form>
